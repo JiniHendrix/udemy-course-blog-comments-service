@@ -10,7 +10,7 @@ app.use(express.json())
 app.use(cors({ origin: true }))
 
 app.get('/posts/:postId/comments', (req, res) => {
-  res.send(commentsByPostId[req.params.postId])
+  res.send(commentsByPostId[req.params.postId] || [])
 })
 
 app.post('/posts/:postId/comments', (req, res) => {
