@@ -1,4 +1,5 @@
 const express = require('express')
+const cors = require('cors')
 const { randomBytes } = require('crypto')
 
 const app = express()
@@ -6,6 +7,7 @@ const app = express()
 const commentsByPostId = {}
 
 app.use(express.json())
+app.use(cors({ origin: true }))
 
 app.get('/posts/:postId/comments', (req, res) => {
   res.send(commentsByPostId[req.params.postId])
