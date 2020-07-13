@@ -39,4 +39,10 @@ app.post('/posts/:postId/comments', (req, res) => {
   res.status(201).send(commentsByPostId[postId])
 })
 
+app.post('/events', (req, res) => {
+  console.log('Event Received: ', req.body.type)
+
+  res.send()
+})
+
 app.listen(4001, () => { console.log('Comments server on 4001') })
